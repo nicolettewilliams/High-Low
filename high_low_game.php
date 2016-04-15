@@ -33,7 +33,7 @@ function guess($randomNumber, $guessNumber, $min, $max){
 };
 
 //compares guess to number and responds with higher or lower
-//if guess is correct, asks if user wants to play again
+//if answer is right, user is asked to play again
 function response($min, $max, $randomNumber, $userNumber, $guessNumber){
         if($randomNumber < $userNumber){
             fwrite(STDOUT, "LOWER\n");
@@ -48,9 +48,7 @@ function response($min, $max, $randomNumber, $userNumber, $guessNumber){
 
             //check to see if user wants to play again
             fwrite(STDOUT, 'Play Again? (y / n): ');
-
-            //trim removes the enter key and spaces
-            $playAgain = trim(fgets(STDIN));
+            $playAgain = (fgets(STDIN));
             if($playAgain == 'y'){
                 //reset the game
                 playGame($min, $max);
